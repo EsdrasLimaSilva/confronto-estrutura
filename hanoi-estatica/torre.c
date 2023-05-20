@@ -40,3 +40,18 @@ void inicializarTorre(Torre *pTorre)
         pTorre->pecasPresentes += 1;
     }
 }
+
+int pop(Torre *pTorre)
+{
+
+    if (pTorre->topo > -1)
+    {
+        int num = topo(pTorre);
+        pTorre->pecas[pTorre->topo] = 0;
+        pTorre->topo--;
+
+        return num;
+    }
+
+    return -1;
+}
