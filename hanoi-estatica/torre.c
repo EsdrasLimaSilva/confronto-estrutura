@@ -55,3 +55,18 @@ int pop(Torre *pTorre)
 
     return -1;
 }
+
+int push(int elemento, Torre *pTorre)
+{
+    // entra se a torre estiver cheia
+    if (pTorre->topo >= PECAS_POR_TORRE - 1)
+        return -1;
+
+    // entra se o a posição do topo for no mínimo zero e se o elemento for maior que o elemento no topo
+    if (pTorre->topo > -1 && pTorre->pecas[pTorre->topo] < elemento)
+        return -2;
+
+    pTorre->topo++;
+    pTorre->pecas[pTorre->topo] = elemento;
+    return elemento;
+}

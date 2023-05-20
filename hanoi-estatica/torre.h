@@ -16,8 +16,12 @@ void inicializarTorre(Torre *pTorre);
 /* Retorna o elemento do topo retirando-o da pilha. Caso a operação seja inválida (como pilha vazia por exemplo), retorna -1 */
 int pop(Torre *pTorre);
 
-/* Adiciona um elemento no topo da pilha de elementos. Caso o elemento a ser inserido
-for menor que o elemento no topo, nenhuma inserção é executada */
+/* Adiciona um elemento no topo da pilha de elementos. Se a operação for bem sucedia, retorna o prórprio elemento.
+Caso contrário retorna o seguinte:
+
+- Pilha cheia:  -1
+- Elemento maior que o topo: -2
+*/
 int push(int elemento, Torre *pTorre);
 
 #endif
