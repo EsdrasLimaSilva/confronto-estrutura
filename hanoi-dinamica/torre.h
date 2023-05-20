@@ -13,19 +13,4 @@ Torre *criarTorre(void);
 /* Coloca todas as peças na torre */
 void inicializarTorre(Torre *pTorre);
 
-/* Retorna 1 se a torre estiver com todas as peças, e 0 caso contrário */
-int torreCompleta(Torre *pTorre);
-
-/* Retorna o elemento do topo retirando-o da pilha. Caso a operação seja inválida (como pilha vazia por exemplo), retorna -1 */
-int pop(Torre *pTorre);
-
-/* Adiciona um elemento no topo da pilha de elementos. Se a operação for bem sucedia, retorna o prórprio elemento.
-Caso contrário retorna o seguinte:
-
-- Pilha cheia:  -1
-- Elemento maior que o topo: -2
-*/
-int push(int elemento, Torre *pTorre);
-
-
 #endif

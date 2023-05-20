@@ -26,7 +26,6 @@ Hanoi *criarJogo(void)
     return pHanoi;
 }
 
-void mostrarJogo(Hanoi *pHanoi)
-{
+void mostrarJogo(Hanoi *pHanoi){
     printf("  %d  |  %d  |  %d\n", topo(pHanoi->pTorre1), topo(pHanoi->pTorre2), topo(pHanoi->pTorre3));
 }
