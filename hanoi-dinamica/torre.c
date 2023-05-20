@@ -68,5 +68,14 @@ int push(int elemento, Torre *pTorre)
 
     pTorre->topo++;
     pTorre->pecas[pTorre->topo] = elemento;
+    pTorre->pecasPresentes++;
     return elemento;
+}
+
+int torreCompleta(Torre *pTorre)
+{
+    if (pTorre->pecasPresentes == PECAS_POR_TORRE)
+        return 1;
+
+    return 0;
 }
