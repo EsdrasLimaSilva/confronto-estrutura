@@ -27,5 +27,14 @@ Caso contrário retorna o seguinte:
 */
 int push(int elemento, Torre *pTorre);
 
+/*
+Retorna o a posição do topo da torre
+*/
+int posTopo(Torre *pTorre);
+
+/*
+Retrorna o número de peças presente na torre
+*/
+int pecasNaTorre(Torre *pTorre);
 
 #endif
