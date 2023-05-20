@@ -45,7 +45,4 @@ int moverPeca(Hanoi *pHanoi, Torre *origem, Torre *destino)
 void mostrarJogo(Hanoi *pHanoi)
 {
     printf("  %d  |  %d  |  %d\n", topo(pHanoi->pTorre1), topo(pHanoi->pTorre2), topo(pHanoi->pTorre3));
-    moverPeca(pHanoi, pHanoi->pTorre1, pHanoi->pTorre2);
-    printf("%d \n", moverPeca(pHanoi, pHanoi->pTorre1, pHanoi->pTorre2));
-    printf("  %d  |  %d  |  %d\n", topo(pHanoi->pTorre1), topo(pHanoi->pTorre2), topo(pHanoi->pTorre3));
 }
