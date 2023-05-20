@@ -37,9 +37,35 @@ int main(void){
     limpar();
     getchar();
     switch (opc){
-    case 1:
+    case 1: {
+        int origem, destino;
         mostrarJogo(pHanoi);
+        printf("Informe a torre de origem: ");
+        scanf("%d", &origem);
+        getchar();
+        printf("Informe a torre de destino: ");
+        scanf("%d", &destino);
+        getchar();
+
+        Torre *torreOrigem = pegarTorre(pHanoi, origem);
+        Torre *torreDestino = pegarTorre(pHanoi, destino);
+
+        if (!torreOrigem || !torreDestino){
+            printf("Não foi possivel fazer alteracao, torres invalidas");
+            break;   
+        }
+
+        int retorno = moverPeca(pHanoi, torreOrigem, torreDestino);
+
+        if (!retorno){
+            printf("Nao eh possivel colocar um numero maior emcima de um menor");
+        }
+        
+        mostrarJogo(pHanoi);
+
         break;
+    }
+        
     case 2:
         system("clear");
         instrucoes();

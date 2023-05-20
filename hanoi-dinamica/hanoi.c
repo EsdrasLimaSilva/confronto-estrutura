@@ -46,3 +46,17 @@ void mostrarJogo(Hanoi *pHanoi)
 {
     printf("  %d  |  %d  |  %d\n", topo(pHanoi->pTorre1), topo(pHanoi->pTorre2), topo(pHanoi->pTorre3));
 }
+
+Torre* pegarTorre(Hanoi *pHanoi, int num){
+
+    if (num == 1){
+        return pHanoi -> pTorre1;
+    }
+    if (num == 2){
+        return pHanoi -> pTorre2;
+    }
+    if(num == 3){
+        return pHanoi -> pTorre3;
+    }
+    return NULL;
+}

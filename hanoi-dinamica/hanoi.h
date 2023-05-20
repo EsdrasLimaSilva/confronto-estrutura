@@ -13,4 +13,6 @@ void mostrarJogo(Hanoi *pHanoi);
 
 int moverPeca(Hanoi *pHanoi,Torre *origem, Torre *destino);
 
+Torre* pegarTorre(Hanoi *pHanoi, int num);
+
 #endif
