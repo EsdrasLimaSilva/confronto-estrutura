@@ -79,3 +79,13 @@ int torreCompleta(Torre *pTorre)
 
     return 0;
 }
+
+int posTopo(Torre *pTorre)
+{
+    return pTorre->topo;
+}
+
+int pecasNaTorre(Torre *pTorre)
+{
+    return pTorre->pecasPresentes;
+}
