@@ -33,10 +33,13 @@ int topoTorre(Torre *pTorre)
 
 void inicializarTorre(Torre *pTorre, int escolhida)
 {
-    for (int i = 6; i > 0; i++)
+    for (int i = 6; i > 0; i--)
     {
         if (escolhida)
+        {
             push(pTorre->pPilha, i);
+            pTorre->topo++;
+        }
         else
             push(pTorre->pPilha, 0);
     }
@@ -49,7 +52,7 @@ int popTorre(Torre *pTorre)
     {
         int num = pop(pTorre->pPilha);
         pTorre->topo--;
-        pTorre->pecasPresentes -= 1;
+        pTorre->pecasPresentes--;
 
         return num;
     }

@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "pilha.h"
@@ -5,7 +6,7 @@
 struct peca
 {
     int valor;
-    struct peca *abaixo;
+    struct peca *pAbaixo;
 };
 
 struct pilha
@@ -16,19 +17,24 @@ struct pilha
 Pilha *criarPilha(void)
 {
     Pilha *pPilha = (Pilha *)malloc(sizeof(Pilha));
+    if (!pPilha)
+        exit(EXIT_FAILURE);
+
     pPilha->pTop = NULL;
+    return pPilha;
 }
 
 int topo(Pilha *pPilha)
 {
-    return pegarValor(pPilha->pTop);
-};
+    return pPilha->pTop->valor;
+}
 
 int pop(Pilha *pPilha)
 {
     Peca *pAux = pPilha->pTop;
     int num = pAux->valor;
-    pPilha->pTop = pAux->abaixo;
+
+    pPilha->pTop = pAux->pAbaixo; // problema aqui
 
     free(pAux);
 
@@ -42,10 +48,10 @@ void push(Pilha *pPilha, int valor)
         exit(EXIT_FAILURE);
 
     pPeca->valor = valor;
-    pPeca->abaixo = NULL;
+    pPeca->pAbaixo = NULL;
 
     if (pPilha->pTop) // se a pilha não estiver vazia
-        pPeca->abaixo = pPilha->pTop->abaixo;
-    else // se a pilha estiver vazia
-        pPilha->pTop = pPeca;
+        pPeca->pAbaixo = pPilha->pTop;
+
+    pPilha->pTop = pPeca;
 }
