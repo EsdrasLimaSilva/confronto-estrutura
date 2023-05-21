@@ -1,29 +1,21 @@
 #include <stdlib.h>
 #include "torre.h"
+#include "pilha.h"
 
 #define PECAS_POR_TORRE 6
 
 struct torre
 {
-    int pecas[PECAS_POR_TORRE];
+    Pilha *pPilha;
     int pecasPresentes;
     int topo;
 };
 
-int topo(Torre *pTorre)
-{
-    if (pTorre->topo > -1)
-        return pTorre->pecas[pTorre->topo];
-
-    return -1;
-}
-
 Torre *criarTorre(void)
 {
     Torre *pTorre = (Torre *)malloc(sizeof(Torre));
-    // inicializando com todas as peças iguais a zero
-    for (int i = 0; i < PECAS_POR_TORRE; i++)
-        pTorre->pecas[i] = 0;
+    Pilha *pPilha = criarPilha();
+    pTorre->pPilha = pPilha;
 
     pTorre->pecasPresentes = 0;
     pTorre->topo = -1;
@@ -31,25 +23,36 @@ Torre *criarTorre(void)
     return pTorre;
 }
 
-void inicializarTorre(Torre *pTorre)
+int topoTorre(Torre *pTorre)
 {
-    for (int i = 0; i < PECAS_POR_TORRE; i++)
+    if (pTorre->topo > -1)
+        return topo(pTorre->pPilha);
+
+    return -1;
+}
+
+void inicializarTorre(Torre *pTorre, int escolhida)
+{
+    for (int i = 6; i > 0; i--)
     {
-        pTorre->pecas[i] = PECAS_POR_TORRE - i;
-        pTorre->topo += 1;
-        pTorre->pecasPresentes += 1;
+        if (escolhida)
+        {
+            push(pTorre->pPilha, i);
+            pTorre->topo++;
+        }
+        else
+            push(pTorre->pPilha, 0);
     }
 }
 
-int pop(Torre *pTorre)
+int popTorre(Torre *pTorre)
 {
 
     if (pTorre->topo > -1)
     {
-        int num = topo(pTorre);
-        pTorre->pecas[pTorre->topo] = 0;
+        int num = pop(pTorre->pPilha);
         pTorre->topo--;
-        pTorre->pecasPresentes -= 1;
+        pTorre->pecasPresentes--;
 
         return num;
     }
@@ -57,19 +60,21 @@ int pop(Torre *pTorre)
     return -1;
 }
 
-int push(int elemento, Torre *pTorre)
+int pushTorre(int elemento, Torre *pTorre)
 {
     // entra se a torre estiver cheia
     if (pTorre->topo >= PECAS_POR_TORRE - 1)
         return -1;
 
     // entra se o a posição do topo for no mínimo zero e se o elemento for maior que o elemento no topo
-    if (pTorre->topo > -1 && pTorre->pecas[pTorre->topo] < elemento)
+    if (pTorre->topo > -1 && topo(pTorre->pPilha) < elemento)
         return -2;
 
+    push(pTorre->pPilha, elemento);
+
     pTorre->topo++;
-    pTorre->pecas[pTorre->topo] = elemento;
     pTorre->pecasPresentes++;
+
     return elemento;
 }
 
