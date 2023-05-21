@@ -104,6 +104,18 @@ Torre *pegarTorre(Hanoi *pHanoi, int num)
     return NULL;
 }
 
-int numeroJogadas(Hanoi *pHanoi){
-    return pHanoi -> jogadas;
+int numeroJogadas(Hanoi *pHanoi)
+{
+    return pHanoi->jogadas;
+}
+
+int jogoVencido(Hanoi *pHanoi)
+{
+    int torre2Completa = torreCompleta(pHanoi->pTorre2);
+    int torre3Completa = torreCompleta(pHanoi->pTorre3);
+
+    if (torre2Completa || torre3Completa)
+        return 1;
+
+    return 0;
 }

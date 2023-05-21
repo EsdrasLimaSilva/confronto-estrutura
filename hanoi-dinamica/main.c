@@ -4,20 +4,25 @@
 #include "torre.h"
 #include "menu.h"
 
-int main(void){
+int main(void)
+{
     Hanoi *pHanoi = criarJogo();
-    int operacao;
+    int fimDeJogo = jogoVencido(pHanoi);
 
-    do{
+    do
+    {
         limparTela();
         mostrarMenu();
-        operacao = coletarOperacao();
+        int operacao = coletarOperacao();
         limparTela();
 
-        switch (operacao){
-        case 1:{
-            int resultadoJogar;
-            do{
+        switch (operacao)
+        {
+        case 1:
+        {
+            int resultadoJogar = 1;
+            while (resultadoJogar != 0 && !fimDeJogo)
+            {
                 mostrarJogo(pHanoi);
                 int origem, destino;
 
@@ -45,8 +50,8 @@ int main(void){
                 printf("Pressione (1) para continuar e (0) para voltar pro menu!");
                 resultadoJogar = coletarOperacao();
                 limparTela();
-            } while (resultadoJogar != 0);
-            
+                fimDeJogo = jogoVencido(pHanoi);
+            }
             break;
         }
 
@@ -66,10 +71,18 @@ int main(void){
             printf("Valor inválido! informe um valor válido do menu");
             break;
         }
+        if (!fimDeJogo)
+        {
+            printf("\n\n");
+            printf("Pressione ENTER para continuar\n\n");
+            getchar();
+        }
 
-        printf("\n\n");
-        printf("Pressione ENTER para continuar\n\n");
-        getchar();
+    } while (!fimDeJogo);
 
-    } while (operacao != 3);
+    if (jogoVencido(pHanoi))
+    {
+        printf("Parabéns, você venceu o jogo!\n");
+        mostrarJogo(pHanoi);
+    }
 }
