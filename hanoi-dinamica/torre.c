@@ -49,6 +49,7 @@ int pop(Torre *pTorre)
         int num = topo(pTorre);
         pTorre->pecas[pTorre->topo] = 0;
         pTorre->topo--;
+        pTorre->pecasPresentes -= 1;
 
         return num;
     }
