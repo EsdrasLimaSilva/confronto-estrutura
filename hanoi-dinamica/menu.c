@@ -37,3 +37,9 @@ void mostrarRegras()
     printf("\t2 - não é possível colocar um peça de maior valor sobre uma de menor valor\n");
     printf("\t3 - o jogo só acaba quando todas as peças tiverem sido colocadas em uma única torre diferente da original\n\n\n");
 }
+
+void coletar(int *variavel, char mensagem[]){
+    printf("%s", mensagem);
+    scanf("%d", variavel);
+    getchar();
+}

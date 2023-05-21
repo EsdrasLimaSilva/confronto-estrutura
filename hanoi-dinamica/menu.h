@@ -23,4 +23,6 @@ void limparTela(void);
 /* Mostra as regras do jogo */
 void mostrarRegras(void);
 
+void coletar(int *variavel, char mensagem[]);
+
 #endif

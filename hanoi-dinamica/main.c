@@ -20,12 +20,9 @@ int main(void){
             do{
                 mostrarJogo(pHanoi);
                 int origem, destino;
-                printf("Informe a torre de origem: ");
-                scanf("%d", &origem);
-                getchar();
-                printf("Informe a torre de destino: ");
-                scanf("%d", &destino);
-                getchar();
+
+                coletar(&origem, "Informe a torre de origem: ");
+                coletar(&destino, "Informe a torre de destino: ");
 
                 Torre *torreOrigem = pegarTorre(pHanoi, origem);
                 Torre *torreDestino = pegarTorre(pHanoi, destino);
