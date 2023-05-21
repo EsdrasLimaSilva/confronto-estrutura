@@ -11,11 +11,13 @@ Hanoi *criarJogo(void);
 /* Mostra os topos de cada torre e asteriscos para as demais peças */
 void mostrarJogo(Hanoi *pHanoi);
 
-int moverPeca(Hanoi *pHanoi,Torre *origem, Torre *destino);
+/* Move uma peça de uma torre de origem para uma torre destino se o movimento for válido */
+int moverPeca(Hanoi *pHanoi, Torre *origem, Torre *destino);
 
-Torre* pegarTorre(Hanoi *pHanoi, int num);
+/* Retorna uma torre de determinado número */
+Torre *pegarTorre(Hanoi *pHanoi, int num);
 
+/* retorna o número de jogadas */
 int numeroJogadas(Hanoi *pHanoi);
- 
 
 #endif

@@ -23,6 +23,7 @@ void limparTela(void);
 /* Mostra as regras do jogo */
 void mostrarRegras(void);
 
-void coletar(int *variavel, char mensagem[]);
+/* coleta um dado específico e atribui o valor à variável passada */
+void coletar(int *variavel, char *mensagem);
 
 #endif
