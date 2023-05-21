@@ -5,19 +5,19 @@
 typedef struct torre Torre;
 
 /* Retorna a peça no topo da torre. Caso o topo seja inválido, retorna -1 */
-int topo(Torre *pTorre);
+int topoTorre(Torre *pTorre);
 
 /* Cria uma torre e retorna um ponteiro para ela */
 Torre *criarTorre(void);
 
 /* Coloca todas as peças na torre */
-void inicializarTorre(Torre *pTorre);
+void inicializarTorre(Torre *pTorre, int escolhida);
 
 /* Retorna 1 se a torre estiver com todas as peças, e 0 caso contrário */
 int torreCompleta(Torre *pTorre);
 
 /* Retorna o elemento do topo retirando-o da pilha. Caso a operação seja inválida (como pilha vazia por exemplo), retorna -1 */
-int pop(Torre *pTorre);
+int popTorre(Torre *pTorre);
 
 /* Adiciona um elemento no topo da pilha de elementos. Se a operação for bem sucedia, retorna o prórprio elemento.
 Caso contrário retorna o seguinte:
@@ -25,7 +25,7 @@ Caso contrário retorna o seguinte:
 - Pilha cheia:  -1
 - Elemento maior que o topo: -2
 */
-int push(int elemento, Torre *pTorre);
+int pushTorre(int elemento, Torre *pTorre);
 
 /*
 Retorna o a posição do topo da torre
