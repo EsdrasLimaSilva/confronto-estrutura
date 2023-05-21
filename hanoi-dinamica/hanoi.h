@@ -15,4 +15,7 @@ int moverPeca(Hanoi *pHanoi,Torre *origem, Torre *destino);
 
 Torre* pegarTorre(Hanoi *pHanoi, int num);
 
+int numeroJogadas(Hanoi *pHanoi);
+ 
+
 #endif

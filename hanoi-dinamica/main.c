@@ -4,54 +4,52 @@
 #include "torre.h"
 #include "menu.h"
 
-void instrucoes()
-{
-    printf("A torre de hanoi funciona da seguinte forma");
-}
-
-int main(void)
-{
+int main(void){
     Hanoi *pHanoi = criarJogo();
     int operacao;
 
-    do
-    {
+    do{
         limparTela();
         mostrarMenu();
         operacao = coletarOperacao();
         limparTela();
 
-        switch (operacao)
-        {
-        case 1:
-        {
-            int origem, destino;
-            mostrarJogo(pHanoi);
-            printf("Informe a torre de origem: ");
-            scanf("%d", &origem);
-            getchar();
-            printf("Informe a torre de destino: ");
-            scanf("%d", &destino);
-            getchar();
+        switch (operacao){
+        case 1:{
+            int resultadoJogar;
+            do{
+                mostrarJogo(pHanoi);
+                int origem, destino;
+                printf("Informe a torre de origem: ");
+                scanf("%d", &origem);
+                getchar();
+                printf("Informe a torre de destino: ");
+                scanf("%d", &destino);
+                getchar();
 
-            Torre *torreOrigem = pegarTorre(pHanoi, origem);
-            Torre *torreDestino = pegarTorre(pHanoi, destino);
+                Torre *torreOrigem = pegarTorre(pHanoi, origem);
+                Torre *torreDestino = pegarTorre(pHanoi, destino);
 
-            if (!torreOrigem || !torreDestino)
-            {
-                printf("Não foi possivel fazer alteracao, torres invalidas");
-                break;
-            }
+                if (!torreOrigem || !torreDestino)
+                {
+                    printf("Não foi possivel fazer alteracao, torres invalidas");
+                    break;
+                }
 
-            int retorno = moverPeca(pHanoi, torreOrigem, torreDestino);
+                int retorno = moverPeca(pHanoi, torreOrigem, torreDestino);
 
-            if (!retorno)
-            {
-                printf("Nao eh possivel colocar um numero maior emcima de um menor");
-            }
+                if (!retorno)
+                {
+                    printf("Nao eh possivel colocar um numero maior emcima de um menor");
+                }
 
-            mostrarJogo(pHanoi);
-
+                limparTela();
+                mostrarJogo(pHanoi);
+                printf("Pressione (1) para continuar e (0) para voltar pro menu!");
+                resultadoJogar = coletarOperacao();
+                limparTela();
+            } while (resultadoJogar != 0);
+            
             break;
         }
 

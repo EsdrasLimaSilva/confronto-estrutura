@@ -14,7 +14,7 @@ void mostrarMenu()
 int coletarOperacao()
 {
     int operacao;
-    printf("\n Informe uma opção: ");
+    printf("\n opção: ");
     scanf("%d", &operacao);
     getchar(); // coletando  o caractere de quebra de linha
     return operacao;
@@ -23,7 +23,7 @@ int coletarOperacao()
 void limparTela()
 {
 #ifdef _WIN32
-    system("clear");
+    system("cls");
 #else
     system("clear");
 #endif

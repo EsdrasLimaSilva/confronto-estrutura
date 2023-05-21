@@ -103,3 +103,7 @@ Torre *pegarTorre(Hanoi *pHanoi, int num)
     }
     return NULL;
 }
+
+int numeroJogadas(Hanoi *pHanoi){
+    return pHanoi -> jogadas;
+}
