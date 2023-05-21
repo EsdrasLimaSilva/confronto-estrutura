@@ -44,7 +44,30 @@ int moverPeca(Hanoi *pHanoi, Torre *origem, Torre *destino)
 
 void mostrarJogo(Hanoi *pHanoi)
 {
-    printf("  %d  |  %d  |  %d\n", topo(pHanoi->pTorre1), topo(pHanoi->pTorre2), topo(pHanoi->pTorre3));
+    for(int i = 0; i < 6; i++){
+        if(pecasNaTorre(pHanoi->pTorre1) == 6-i){
+            printf("%d ", topo(pHanoi->pTorre1));
+        }else if(pecasNaTorre(pHanoi->pTorre1) < 6-i || topo(pHanoi->pTorre1) == -1){
+            printf("  ");
+        }else {
+            printf("* ");
+        }
+        if(pecasNaTorre(pHanoi->pTorre2) == 6-i){
+            printf("| %d |", topo(pHanoi->pTorre2));
+        }else if(pecasNaTorre(pHanoi->pTorre2) < 6-i || topo(pHanoi->pTorre2) == -1){
+            printf("|   |");
+        }else {
+            printf("| * |");
+        }
+        if(pecasNaTorre(pHanoi->pTorre3) == 6-i){
+            printf("%d ", topo(pHanoi->pTorre3));
+        }else if(pecasNaTorre(pHanoi->pTorre3) < 6-i || topo(pHanoi->pTorre3) == -1){
+            printf("   ");
+        }else {
+            printf("* ");
+        }
+        printf("\n");
+    }
 }
 
 Torre* pegarTorre(Hanoi *pHanoi, int num){
