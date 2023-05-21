@@ -20,4 +20,7 @@ Torre *pegarTorre(Hanoi *pHanoi, int num);
 /* retorna o número de jogadas */
 int numeroJogadas(Hanoi *pHanoi);
 
+/* retorna 1 se o jogo estiver completo, caso contrário retorna 0 */
+int jogoVencido(Hanoi *pHanoi);
+
 #endif

@@ -44,44 +44,36 @@ int moverPeca(Hanoi *pHanoi, Torre *origem, Torre *destino)
 
 void mostrarJogo(Hanoi *pHanoi)
 {
-    for (int i = 0; i < 6; i++)
+    int topoTorre1 = posTopo(pHanoi->pTorre1);
+    int topoTorre2 = posTopo(pHanoi->pTorre2);
+    int topoTorre3 = posTopo(pHanoi->pTorre3);
+
+    for (int i = 5; i >= 0; i--)
     {
-        if (pecasNaTorre(pHanoi->pTorre1) == 6 - i)
-        {
-            printf("%d ", topo(pHanoi->pTorre1));
-        }
-        else if (pecasNaTorre(pHanoi->pTorre1) < 6 - i || topo(pHanoi->pTorre1) == -1)
-        {
-            printf("  ");
-        }
+        // torre 1
+        if (i > topoTorre1)
+            printf("     |");
+        else if (i == topoTorre1)
+            printf("  %d  |", topo(pHanoi->pTorre1));
         else
-        {
-            printf("* ");
-        }
-        if (pecasNaTorre(pHanoi->pTorre2) == 6 - i)
-        {
-            printf("| %d |", topo(pHanoi->pTorre2));
-        }
-        else if (pecasNaTorre(pHanoi->pTorre2) < 6 - i || topo(pHanoi->pTorre2) == -1)
-        {
-            printf("|   |");
-        }
+            printf("  *  |");
+
+        // torre2
+        if (i > topoTorre2)
+            printf("     |");
+        else if (i == topoTorre2)
+            printf("  %d  |", topo(pHanoi->pTorre2));
         else
-        {
-            printf("| * |");
-        }
-        if (pecasNaTorre(pHanoi->pTorre3) == 6 - i)
-        {
-            printf("%d ", topo(pHanoi->pTorre3));
-        }
-        else if (pecasNaTorre(pHanoi->pTorre3) < 6 - i || topo(pHanoi->pTorre3) == -1)
-        {
-            printf("   ");
-        }
+            printf("  *  |");
+
+        // torre3
+        if (i > topoTorre3)
+            printf("    ");
+        else if (i == topoTorre3)
+            printf("  %d", topo(pHanoi->pTorre3));
         else
-        {
-            printf("* ");
-        }
+            printf("  *");
+
         printf("\n");
     }
 }
@@ -104,6 +96,18 @@ Torre *pegarTorre(Hanoi *pHanoi, int num)
     return NULL;
 }
 
-int numeroJogadas(Hanoi *pHanoi){
-    return pHanoi -> jogadas;
+int numeroJogadas(Hanoi *pHanoi)
+{
+    return pHanoi->jogadas;
+}
+
+int jogoVencido(Hanoi *pHanoi)
+{
+    int torre2Completa = torreCompleta(pHanoi->pTorre2);
+    int torre3Completa = torreCompleta(pHanoi->pTorre3);
+
+    if (torre2Completa || torre3Completa)
+        return 1;
+
+    return 0;
 }
