@@ -44,42 +44,62 @@ int moverPeca(Hanoi *pHanoi, Torre *origem, Torre *destino)
 
 void mostrarJogo(Hanoi *pHanoi)
 {
-    for(int i = 0; i < 6; i++){
-        if(pecasNaTorre(pHanoi->pTorre1) == 6-i){
+    for (int i = 0; i < 6; i++)
+    {
+        if (pecasNaTorre(pHanoi->pTorre1) == 6 - i)
+        {
             printf("%d ", topo(pHanoi->pTorre1));
-        }else if(pecasNaTorre(pHanoi->pTorre1) < 6-i || topo(pHanoi->pTorre1) == -1){
+        }
+        else if (pecasNaTorre(pHanoi->pTorre1) < 6 - i || topo(pHanoi->pTorre1) == -1)
+        {
             printf("  ");
-        }else {
+        }
+        else
+        {
             printf("* ");
         }
-        if(pecasNaTorre(pHanoi->pTorre2) == 6-i){
+        if (pecasNaTorre(pHanoi->pTorre2) == 6 - i)
+        {
             printf("| %d |", topo(pHanoi->pTorre2));
-        }else if(pecasNaTorre(pHanoi->pTorre2) < 6-i || topo(pHanoi->pTorre2) == -1){
+        }
+        else if (pecasNaTorre(pHanoi->pTorre2) < 6 - i || topo(pHanoi->pTorre2) == -1)
+        {
             printf("|   |");
-        }else {
+        }
+        else
+        {
             printf("| * |");
         }
-        if(pecasNaTorre(pHanoi->pTorre3) == 6-i){
+        if (pecasNaTorre(pHanoi->pTorre3) == 6 - i)
+        {
             printf("%d ", topo(pHanoi->pTorre3));
-        }else if(pecasNaTorre(pHanoi->pTorre3) < 6-i || topo(pHanoi->pTorre3) == -1){
+        }
+        else if (pecasNaTorre(pHanoi->pTorre3) < 6 - i || topo(pHanoi->pTorre3) == -1)
+        {
             printf("   ");
-        }else {
+        }
+        else
+        {
             printf("* ");
         }
         printf("\n");
     }
 }
 
-Torre* pegarTorre(Hanoi *pHanoi, int num){
+Torre *pegarTorre(Hanoi *pHanoi, int num)
+{
 
-    if (num == 1){
-        return pHanoi -> pTorre1;
+    if (num == 1)
+    {
+        return pHanoi->pTorre1;
     }
-    if (num == 2){
-        return pHanoi -> pTorre2;
+    if (num == 2)
+    {
+        return pHanoi->pTorre2;
     }
-    if(num == 3){
-        return pHanoi -> pTorre3;
+    if (num == 3)
+    {
+        return pHanoi->pTorre3;
     }
     return NULL;
 }
