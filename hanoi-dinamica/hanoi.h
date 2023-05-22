@@ -12,7 +12,7 @@ Hanoi *criarJogo(void);
 void mostrarJogo(Hanoi *pHanoi);
 
 /* Move uma peça de uma torre de origem para uma torre destino se o movimento for válido */
-int moverPeca(Hanoi *pHanoi, Torre *origem, Torre *destino);
+int moverPeca(Hanoi *pHanoi, int torreNum1, int torreNum2);
 
 /* Retorna uma torre de determinado número */
 Torre *pegarTorre(Hanoi *pHanoi, int num);
