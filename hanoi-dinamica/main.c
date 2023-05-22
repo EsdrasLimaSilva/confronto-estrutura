@@ -29,16 +29,14 @@ int main(void)
                 coletar(&origem, "Informe a torre de origem: ");
                 coletar(&destino, "Informe a torre de destino: ");
 
-                Torre *torreOrigem = pegarTorre(pHanoi, origem);
-                Torre *torreDestino = pegarTorre(pHanoi, destino);
 
-                if (!torreOrigem || !torreDestino)
+                if (!origem || !destino)
                 {
                     printf("Não foi possivel fazer alteracao, torres invalidas");
                     break;
                 }
 
-                int retorno = moverPeca(pHanoi, torreOrigem, torreDestino);
+                int retorno = moverPeca(pHanoi, origem, destino);
 
                 if (!retorno)
                 {

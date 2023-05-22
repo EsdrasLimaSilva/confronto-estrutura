@@ -29,8 +29,10 @@ Hanoi *criarJogo(void)
     return pHanoi;
 }
 
-int moverPeca(Hanoi *pHanoi, Torre *origem, Torre *destino)
+int moverPeca(Hanoi *pHanoi, int torreNum1, int torreNum2)
 {
+    Torre* origem = pegarTorre(pHanoi, torreNum1);
+    Torre* destino = pegarTorre(pHanoi, torreNum2);
     if (topoTorre(origem) != -1 && torreCompleta(destino) != 1)
     {
         int elemento = popTorre(origem);
