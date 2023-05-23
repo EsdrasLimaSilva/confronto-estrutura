@@ -24,15 +24,18 @@ Hanoi *criarJogo(void)
     // Iniciando a primeira torre
     inicializarTorre(pHanoi->pTorre1, 1);
     inicializarTorre(pHanoi->pTorre2, 0);
-    inicializarTorre(pHanoi->pTorre2, 0);
+    inicializarTorre(pHanoi->pTorre3, 0);
 
     return pHanoi;
 }
 
 int moverPeca(Hanoi *pHanoi, int torreNum1, int torreNum2)
 {
-    Torre* origem = pegarTorre(pHanoi, torreNum1);
-    Torre* destino = pegarTorre(pHanoi, torreNum2);
+    Torre *origem = pegarTorre(pHanoi, torreNum1);
+    Torre *destino = pegarTorre(pHanoi, torreNum2);
+    if (!origem || !destino)
+        return 0;
+
     if (topoTorre(origem) != -1 && torreCompleta(destino) != 1)
     {
         int elemento = popTorre(origem);
@@ -61,7 +64,7 @@ void mostrarJogo(Hanoi *pHanoi)
         else if (i == topoTorre1)
             printf("  %d  |", topoTorre(pHanoi->pTorre1));
         else
-            printf("  %d  |", lerPecaTorre(pHanoi->pTorre1, 5-i));
+            printf("  *  |");
 
         // torre2
         if (i > topoTorre2)
@@ -69,7 +72,7 @@ void mostrarJogo(Hanoi *pHanoi)
         else if (i == topoTorre2)
             printf("  %d  |", topoTorre(pHanoi->pTorre2));
         else
-            printf("  %d  |", lerPecaTorre(pHanoi->pTorre2, 5-i));
+            printf("  *  |");
 
         // torre3
         if (i > topoTorre3)
@@ -77,7 +80,7 @@ void mostrarJogo(Hanoi *pHanoi)
         else if (i == topoTorre3)
             printf("  %d", topoTorre(pHanoi->pTorre3));
         else
-            printf("  %d", lerPecaTorre(pHanoi->pTorre1, 5-i));
+            printf("  *  ");
 
         printf("\n");
     }
