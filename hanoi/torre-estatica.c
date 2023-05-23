@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "torre.h"
+#include "torre-estatica.h"
 
 #define PECAS_POR_TORRE 6
 
@@ -37,7 +37,7 @@ Torre *criarTorre(int inicial)
     return pTorre;
 }
 
-int push(Torre *pTorre, int elemento)
+int pushTorre(Torre *pTorre, int elemento)
 {
     if (pTorre->topo < -1)
         return -1;
@@ -48,7 +48,7 @@ int push(Torre *pTorre, int elemento)
     return elemento;
 }
 
-int pop(Torre *pTorre)
+int popTorre(Torre *pTorre)
 {
     if (pTorre->topo < 0)
         return -1;
@@ -60,12 +60,12 @@ int pop(Torre *pTorre)
     return num;
 }
 
-int top(Torre *pTorre)
+int topoTorre(Torre *pTorre)
 {
     return pTorre->pecas[pTorre->topo];
 }
 
-int posTop(Torre *pTorre)
+int posTopo(Torre *pTorre)
 {
     return pTorre->topo;
 }
