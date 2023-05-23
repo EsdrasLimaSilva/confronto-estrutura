@@ -32,11 +32,14 @@ int topo(Pilha *pPilha)
 int pop(Pilha *pPilha)
 {
     Peca *pAux = pPilha->pTop;
+    if (!pAux)
+        return -1;
+
     int num = pAux->valor;
 
-    pPilha->pTop = pAux->pAbaixo; // problema aqui
+    pPilha->pTop = pAux->pAbaixo;
 
-    free(pAux);
+    // free(pAux);
 
     return num;
 }
@@ -54,15 +57,4 @@ void push(Pilha *pPilha, int valor)
         pPeca->pAbaixo = pPilha->pTop;
 
     pPilha->pTop = pPeca;
-}
-
-int lerPeca(Pilha* pilha, int pos){
-    Peca* peca = pilha->pTop;
-    for(int i = 0; i < pos; i++){
-        if(peca == NULL){
-            return 0;
-        }
-        peca = peca->pAbaixo;
-    }
-    return peca->valor;
 }
