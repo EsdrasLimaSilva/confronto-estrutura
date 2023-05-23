@@ -38,8 +38,21 @@ int main(void)
                 coletar(&destino, "torre de destino: ");
                 moverPeca(pHanoi, origem, destino);
             } while (origem != 0);
+            break;
         }
+        case INSTRUCOES:
+            limparTela();
+            mostrarRegras();
+            break;
+        case SAIR:
+            limparTela();
+            printf("Obrigado por jogar!\n");
+            exit(EXIT_SUCCESS);
+            break;
         }
+
+        printf(" Pressione ENTER para continuar\n");
+        getchar();
 
     } while (operacao != 3);
 }
