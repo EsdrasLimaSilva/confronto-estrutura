@@ -95,3 +95,8 @@ int pecasNaTorre(Torre *pTorre)
 {
     return pTorre->pecasPresentes;
 }
+
+int lerPecaTorre(Torre*torre, int pos){
+    Pilha* pilha = torre->pPilha;
+    return lerPeca(pilha, pos);
+}

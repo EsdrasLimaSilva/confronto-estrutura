@@ -19,4 +19,6 @@ int pop(Pilha *pPilha);
 /* Adicona um valor à pilha, criando uma peça para o mesmo */
 void push(Pilha *pPilha, int valor);
 
+int lerPeca(Pilha* pilha, int pos);
+
 #endif

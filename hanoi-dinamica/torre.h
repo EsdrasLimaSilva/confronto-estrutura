@@ -37,4 +37,6 @@ Retrorna o número de peças presente na torre
 */
 int pecasNaTorre(Torre *pTorre);
 
+int lerPecaTorre(Torre*torre, int pos);
+
 #endif
