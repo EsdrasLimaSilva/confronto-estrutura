@@ -18,8 +18,6 @@ Processo *criarProcesso(char descricao[])
     if (!pProcesso)
         exit(EXIT_FAILURE);
 
-    srand(time(NULL));
-
     unsigned int id = ceil(rand() % 10000);
 
     strcpy(pProcesso->descricao, descricao);
