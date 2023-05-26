@@ -97,3 +97,20 @@ int maximoPecas(void)
 {
     return PECAS_POR_TORRE;
 }
+
+int valorPeça(Torre *pTorre, int pos)
+{
+    if (pos > posTopo(pTorre) || pos < 0)
+        return 0;
+
+    Peca *pAux = ponteiroTopo(pTorre->pPilha);
+
+    int caminhada = posTopo(pTorre) - pos;
+
+    for (int i = 0; i < caminhada; i++)
+    {
+        pAux = abaixo(pAux);
+    }
+
+    return pegarValor(pAux);
+}

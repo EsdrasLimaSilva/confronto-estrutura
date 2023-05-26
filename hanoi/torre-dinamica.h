@@ -37,4 +37,7 @@ int pecasNaTorre(Torre *pTorre);
 /* Retorna um número máximo de peças por torre */
 int maximoPecas(void);
 
+/* Retorna o valor de uma peça em uma determinada posição.  */
+int valorPeça(Torre *pTorre, int pos);
+
 #endif

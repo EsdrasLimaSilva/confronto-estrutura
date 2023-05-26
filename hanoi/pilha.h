@@ -10,6 +10,15 @@ typedef struct peca Peca;
 /*Cria uma estrutura do tipo pilha*/
 Pilha *criarPilha(void);
 
+/* Retorna o ponteiro para o topo da pilha*/
+Peca *ponteiroTopo(Pilha *pPilha);
+
+/* Retorna a peça imediatamente inferior */
+Peca *abaixo(Peca *pPeca);
+
+/* Pega o valor de uma determinada peça */
+int pegarValor(Peca *pPeca);
+
 /* retorna o valor do topo da pilha sem removê-lo da pilha */
 int topo(Pilha *pPilha);
 

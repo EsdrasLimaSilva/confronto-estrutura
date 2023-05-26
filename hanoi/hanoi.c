@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "hanoi.h"
-#include "torre-estatica.h"
+#include "torre-dinamica.h"
 
 struct hanoi
 {
@@ -25,39 +25,70 @@ Hanoi *criarJogo(void)
     return pHanoi;
 }
 
+/*
+
+      ==      |
+     ====     |
+    ======    |
+   ========   |
+  ==========  |
+ ============ |
+
+ 14 espaços no máximo
+
+ 14 - 12 = 2 espaços => 1 espaço para a esquerda e 1 para a direita
+
+*/
+void mostrarDisco(int valor)
+{
+    const int TAMANHO_DISCO_MAXIMO = 14;
+    printf("|");
+
+    if (valor)
+    {
+        int numeroDeDiscos = valor * 2;
+        int espacos = TAMANHO_DISCO_MAXIMO - numeroDeDiscos;
+        int espacosInicio = espacos / 2;
+        int espacosFim = espacos / 2;
+
+        // mostrando os espaços do início
+        for (int i = 0; i < espacosInicio; i++)
+            printf(" ");
+
+        // mostrando os discos
+        for (int i = 0; i < numeroDeDiscos; i++)
+            printf("=");
+
+        // mostrando os espaços do fim
+        for (int i = 0; i < espacosFim; i++)
+            printf(" ");
+    }
+    else
+    {
+        for (int i = 0; i < TAMANHO_DISCO_MAXIMO; i++)
+            printf(" ");
+    }
+
+    printf("|");
+}
+
 void mostrarJogo(Hanoi *pHanoi)
 {
-    int topoTorre1 = posTopo(pHanoi->pTorre1);
-    int topoTorre2 = posTopo(pHanoi->pTorre2);
-    int topoTorre3 = posTopo(pHanoi->pTorre3);
-
     printf("\n");
     int numeroPecasMaximo = maximoPecas();
     for (int i = numeroPecasMaximo - 1; i >= 0; i--)
     {
         // torre 1
-        if (i > topoTorre1)
-            printf("     |");
-        else if (i == topoTorre1)
-            printf("  %d  |", topoTorre(pHanoi->pTorre1));
-        else
-            printf("  *  |");
+        int valorPecaTorre1 = valorPeça(pHanoi->pTorre1, i);
+        mostrarDisco(valorPecaTorre1);
 
         // torre 2
-        if (i > topoTorre2)
-            printf("     |");
-        else if (i == topoTorre2)
-            printf("  %d  |", topoTorre(pHanoi->pTorre2));
-        else
-            printf("  *  |");
+        int valorPecaTorre2 = valorPeça(pHanoi->pTorre2, i);
+        mostrarDisco(valorPecaTorre2);
 
         // torre 3
-        if (i > topoTorre3)
-            printf("     |");
-        else if (i == topoTorre3)
-            printf("  %d  |", topoTorre(pHanoi->pTorre3));
-        else
-            printf("  *  |");
+        int valorPecaTorre3 = valorPeça(pHanoi->pTorre3, i);
+        mostrarDisco(valorPecaTorre3);
 
         printf("\n");
     }

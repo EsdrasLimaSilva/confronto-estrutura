@@ -24,6 +24,21 @@ Pilha *criarPilha(void)
     return pPilha;
 }
 
+Peca *ponteiroTopo(Pilha *pPilha)
+{
+    return pPilha->pTop;
+}
+
+Peca *abaixo(Peca *pPeca)
+{
+    return pPeca->pAbaixo;
+}
+
+int pegarValor(Peca *pPeca)
+{
+    return pPeca->valor;
+}
+
 int topo(Pilha *pPilha)
 {
     return pPilha->pTop->valor;

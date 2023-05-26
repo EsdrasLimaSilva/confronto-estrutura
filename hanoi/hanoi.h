@@ -21,4 +21,7 @@ Torre *pegarTorre(Hanoi *pHanoi, int num);
 /*checa se o usuário venceu*/
 int venceu(Hanoi *pHanoi);
 
+/* Mostra um disco com largura correspondente ao valor informado */
+void mostrarDisco(int valor);
+
 #endif
