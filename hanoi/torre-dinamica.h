@@ -8,10 +8,7 @@ typedef struct torre Torre;
 int topoTorre(Torre *pTorre);
 
 /* Cria uma torre e retorna um ponteiro para ela */
-Torre *criarTorre(void);
-
-/* Coloca todas as peças na torre */
-void inicializarTorre(Torre *pTorre, int escolhida);
+Torre *criarTorre(int inicial);
 
 /* Retorna 1 se a torre estiver com todas as peças, e 0 caso contrário */
 int torreCompleta(Torre *pTorre);
@@ -25,7 +22,7 @@ Caso contrário retorna o seguinte:
 - Pilha cheia:  -1
 - Elemento maior que o topo: -2
 */
-int pushTorre(int elemento, Torre *pTorre);
+int pushTorre(Torre *pTorre, int elemento);
 
 /*
 Retorna o a posição do topo da torre
@@ -37,6 +34,7 @@ Retrorna o número de peças presente na torre
 */
 int pecasNaTorre(Torre *pTorre);
 
-int lerPecaTorre(Torre*torre, int pos);
+/* Retorna um número máximo de peças por torre */
+int maximoPecas(void);
 
 #endif

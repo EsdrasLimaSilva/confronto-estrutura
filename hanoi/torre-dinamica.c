@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "torre.h"
+#include "torre-dinamica.h"
 #include "pilha.h"
 
 #define PECAS_POR_TORRE 6
@@ -11,7 +11,7 @@ struct torre
     int topo;
 };
 
-Torre *criarTorre(void)
+Torre *criarTorre(int inicial)
 {
     Torre *pTorre = (Torre *)malloc(sizeof(Torre));
     Pilha *pPilha = criarPilha();
@@ -19,6 +19,17 @@ Torre *criarTorre(void)
 
     pTorre->pecasPresentes = 0;
     pTorre->topo = -1;
+
+    for (int i = PECAS_POR_TORRE; i > 0; i--)
+    {
+        if (inicial)
+        {
+            push(pTorre->pPilha, i);
+            pTorre->topo++;
+        }
+        else
+            push(pTorre->pPilha, 0);
+    }
 
     return pTorre;
 }
@@ -29,20 +40,6 @@ int topoTorre(Torre *pTorre)
         return topo(pTorre->pPilha);
 
     return -1;
-}
-
-void inicializarTorre(Torre *pTorre, int escolhida)
-{
-    for (int i = 6; i > 0; i--)
-    {
-        if (escolhida)
-        {
-            push(pTorre->pPilha, i);
-            pTorre->topo++;
-        }
-        else
-            push(pTorre->pPilha, 0);
-    }
 }
 
 int popTorre(Torre *pTorre)
@@ -60,7 +57,7 @@ int popTorre(Torre *pTorre)
     return -1;
 }
 
-int pushTorre(int elemento, Torre *pTorre)
+int pushTorre(Torre *pTorre, int elemento)
 {
     // entra se a torre estiver cheia
     if (pTorre->topo >= PECAS_POR_TORRE - 1)
@@ -94,4 +91,9 @@ int posTopo(Torre *pTorre)
 int pecasNaTorre(Torre *pTorre)
 {
     return pTorre->pecasPresentes;
+}
+
+int maximoPecas(void)
+{
+    return PECAS_POR_TORRE;
 }
