@@ -8,16 +8,16 @@ typedef struct torre Torre;
 Torre *criarTorre(int inicial);
 
 /* adiciona uma peça da torre */
-int push(Torre *pTorre, int elemento);
+int pushTorre(Torre *pTorre, int elemento);
 
 /* remove uma peça da torre */
-int pop(Torre *pTorre);
+int popTorre(Torre *pTorre);
 
 /* retorna o elemento do topo */
-int top(Torre *pTorre);
+int topoTorre(Torre *pTorre);
 
 /* retorna a posição do topo */
-int posTop(Torre *pTorre);
+int posTopo(Torre *pTorre);
 
 /* retorna o número máximo de peças por torre */
 int maximoPecas();
