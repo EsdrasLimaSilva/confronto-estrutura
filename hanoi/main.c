@@ -21,6 +21,7 @@ int main(void)
         case MOVER:
         {
             int origem, destino;
+            int error;
             do
             {
 
@@ -32,11 +33,17 @@ int main(void)
                     exit(EXIT_SUCCESS);
                 }
 
-                puts("Digie 0 na torre de origem para voltar para o menu");
+                if (error == -1){
+                    printf("Jogada invalida, tente novamente!\n");
+                }
+
+                printf("Digie 0 na torre de origem para voltar para o menu");
                 mostrarJogo(pHanoi);
                 coletar(&origem, "torre de origem: ");
                 coletar(&destino, "torre de destino: ");
-                moverPeca(pHanoi, origem, destino);
+
+                error = moverPeca(pHanoi, origem, destino);
+
             } while (origem != 0);
             break;
         }
