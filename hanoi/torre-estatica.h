@@ -25,4 +25,7 @@ int maximoPecas();
 /* verifica se uma torre está completa */
 int torreCompleta(Torre *pTorre);
 
+/* Retorna o valor de uma peça em uma determinada posição.  */
+int valorPeca(Torre *pTorre, int pos);
+
 #endif

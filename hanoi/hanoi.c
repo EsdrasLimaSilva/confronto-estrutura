@@ -79,15 +79,15 @@ void mostrarJogo(Hanoi *pHanoi)
     for (int i = numeroPecasMaximo - 1; i >= 0; i--)
     {
         // torre 1
-        int valorPecaTorre1 = valorPeça(pHanoi->pTorre1, i);
+        int valorPecaTorre1 = valorPeca(pHanoi->pTorre1, i);
         mostrarDisco(valorPecaTorre1);
 
         // torre 2
-        int valorPecaTorre2 = valorPeça(pHanoi->pTorre2, i);
+        int valorPecaTorre2 = valorPeca(pHanoi->pTorre2, i);
         mostrarDisco(valorPecaTorre2);
 
         // torre 3
-        int valorPecaTorre3 = valorPeça(pHanoi->pTorre3, i);
+        int valorPecaTorre3 = valorPeca(pHanoi->pTorre3, i);
         mostrarDisco(valorPecaTorre3);
 
         printf("\n");

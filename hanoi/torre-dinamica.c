@@ -98,7 +98,7 @@ int maximoPecas(void)
     return PECAS_POR_TORRE;
 }
 
-int valorPeça(Torre *pTorre, int pos)
+int valorPeca(Torre *pTorre, int pos)
 {
     if (pos > posTopo(pTorre) || pos < 0)
         return 0;

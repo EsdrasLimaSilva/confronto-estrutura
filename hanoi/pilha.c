@@ -29,6 +29,7 @@ Peca *ponteiroTopo(Pilha *pPilha)
     return pPilha->pTop;
 }
 
+
 Peca *abaixo(Peca *pPeca)
 {
     return pPeca->pAbaixo;

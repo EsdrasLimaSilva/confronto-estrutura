@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "torre-estatica.h"
+#include "pilha.h"
 
 #define PECAS_POR_TORRE 6
 
@@ -11,12 +12,13 @@ struct torre
     int topo;
 };
 
-Torre *criarTorre(int inicial)
-{
+Torre *criarTorre(int inicial){
+
     Torre *pTorre = malloc(sizeof(Torre));
+
     if (!pTorre)
         exit(EXIT_FAILURE);
-
+    
     pTorre->topo = -1;
 
     // inicializando as posições da torre
@@ -80,4 +82,21 @@ int torreCompleta(Torre *pTorre)
     if (pTorre->topo == PECAS_POR_TORRE - 1)
         return 1;
     return 0;
+}
+
+
+// preciso arruamar essa função
+int valorPeca(Torre *pTorre, int pos)
+{
+    if (pos > posTopo(pTorre) || pos < 0)
+        return 0;
+    
+    int caminhada = posTopo(pTorre);
+
+    for (int i = 0; i < caminhada + 1; i++)
+    {
+        if (i == pos){
+            return pTorre -> pecas[i];
+        }
+    }
 }
