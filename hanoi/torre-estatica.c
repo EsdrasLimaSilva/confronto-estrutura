@@ -99,4 +99,5 @@ int valorPeca(Torre *pTorre, int pos)
             return pTorre -> pecas[i];
         }
     }
+    return 0;
 }
