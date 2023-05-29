@@ -35,10 +35,10 @@ void *pegarElemento(Nodo *pNodo);
 Nodo *proximo(Nodo *pNodo);
 
 /* Cria um novo Nodo e retorna um ponteiro para ele */
-Nodo *criarNodo();
+Nodo *criarNodo(void *pElemento);
 
 /* busca um nodo com um elemento na lista na lista */
-Nodo *buscar(Lista *pLista, char *string, int (*compararElemento)(Nodo *pNodo, char *string));
+void *buscar(Lista *pLista, char *string, int (*compararElemento)(void *pElemento, char *string));
 
 /* Adiciona um ponteiro para um elemento do Nodo */
 void adicionarElemento(Nodo *pNodo, void *pElemento);

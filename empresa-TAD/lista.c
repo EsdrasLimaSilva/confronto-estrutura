@@ -66,15 +66,13 @@ void mostrarLista(Lista *pLista, void (*mostrarElemento)(void *pElemento))
 {
     Nodo *pAux = pLista->pHead;
 
-    if (pAux)
-        mostrarElemento(pAux->pElemento);
-    else
-        printf("Lista vazia!\n");
+    if (!pAux)
+        printf("Lista vazia\n");
 
-    while (pAux && pAux->pProximo)
+    while (pAux)
     {
-        pAux = pAux->pProximo;
         mostrarElemento(pAux->pElemento);
+        pAux = pAux->pProximo;
     }
 }
 
@@ -93,20 +91,23 @@ Nodo *proximo(Nodo *pNodo)
     return pNodo->pProximo;
 }
 
-Nodo *buscar(Lista *pLista, char *string, int (*compararElemento)(Nodo *pNodo, char *string))
+void *buscar(Lista *pLista, char *string, int (*compararElemento)(void *pElemento, char *string))
 {
     Nodo *pAux = pegarHead(pLista);
-    while (pAux->pProximo)
+
+    while (pAux)
     {
-        int equal = compararElemento(pAux, string);
+        int equal = compararElemento(pAux->pElemento, string);
         if (equal)
-            return pAux;
+            return pAux->pElemento;
+
+        pAux = pAux->pProximo;
     }
 
     return NULL;
 }
 
-Nodo *criarNodo()
+Nodo *criarNodo(void *pElemento)
 {
     // criando o nodo e checando se tudo deu certo
     Nodo *pNodo = (Nodo *)malloc(sizeof(Nodo));
@@ -114,6 +115,7 @@ Nodo *criarNodo()
         exit(EXIT_FAILURE);
 
     pNodo->pAnterior = pNodo->pProximo = NULL;
+    pNodo->pElemento = pElemento;
 
     return pNodo;
 }

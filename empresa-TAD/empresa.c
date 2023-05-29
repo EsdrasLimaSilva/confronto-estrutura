@@ -33,17 +33,11 @@ void removerFuncionario(unsigned int matricula, Lista *pEmpresa)
 
 void adicionarFuncionario(Lista *pEmpresa)
 {
-    // criando o nodo e checando se tudo deu certo
-    Nodo *pNodo = criarNodo();
 
     // alocando memória para o funcionario e checando se tudo deu certo
     Funcionario *pFuncionario = (Funcionario *)malloc(sizeof(Funcionario));
     if (!pFuncionario)
-    {
-        free(pNodo);
-        printf("Algo deu errado");
         exit(EXIT_FAILURE);
-    }
 
     // coletando os dados do funcionário
     printf("Nome do funcinário: ");
@@ -54,7 +48,9 @@ void adicionarFuncionario(Lista *pEmpresa)
     scanf("%u", &pFuncionario->matricula);
     getchar();
 
-    // associando o elemento do nodo ao endereço de memória do funcionario
+    // criando o nodo e checando se tudo deu certo
+    Nodo *pNodo = criarNodo((void *)pFuncionario);
+
     adicionar(pEmpresa, pNodo);
 }
 
@@ -70,14 +66,15 @@ void mostrarEmpresa(Lista *pEmpresa)
     mostrarLista(pEmpresa, mostrarFuncionario);
 }
 
-int compararFuncionario(Nodo *pNodo, char *nome)
+int compararFuncionario(void *pElemento, char *nome)
 {
-    Funcionario *pFuncionario = (Funcionario *)pegarElemento(pNodo);
+    Funcionario *pFuncionario = (Funcionario *)pElemento;
 
     int comp = strcmp(pFuncionario->nome, nome);
 
     if (!comp)
         return 1;
+
     return 0;
 }
 
@@ -86,9 +83,9 @@ void buscarFuncionario(char *nome, Lista *pEmpresa)
 
     Funcionario *pFuncionario = (Funcionario *)buscar(pEmpresa, nome, compararFuncionario);
 
-    if (!pFuncionario)
+    if (pFuncionario)
     {
-        printf("Funcionário encontrado!\n");
+        printf("Nome: %s\nMatrícula: %u\n", pFuncionario->nome, pFuncionario->matricula);
     }
     else
     {

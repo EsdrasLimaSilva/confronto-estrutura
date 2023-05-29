@@ -52,6 +52,7 @@ int main()
 			char nome[50];
 			printf("Insira o nome do funcionário: ");
 			fgets(nome, 50, stdin);
+			nome[strlen(nome) - 1] = '\0';
 
 			printf("\n");
 

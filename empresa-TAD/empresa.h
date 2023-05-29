@@ -29,7 +29,7 @@ void mostrarFuncionario(void *pNodo);
 void mostrarEmpresa(Lista *pEmpresa);
 
 // compara um nodo genérico de uma lista com o nome do funcionário
-int compararFuncionario(Nodo *pNodo, char *nome);
+int compararFuncionario(void *pElemento, char *nome);
 
 // busca um funcionário e mostra ele
 void buscarFuncionario(char *nome, Lista *pEmpresa);
