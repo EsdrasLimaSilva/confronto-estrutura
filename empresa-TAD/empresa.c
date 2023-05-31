@@ -16,7 +16,7 @@ void removerFuncionario(Lista *pEmpresa)
 {
     // colentando a matrícula do funcionário
     unsigned int matricula;
-    printf("Informe a matricula do funcionario: ");
+    printf(" Informe a matricula do funcionario: ");
     scanf("%u", &matricula);
     getchar(); // coletando caractere de nova linha
     printf("\n");
@@ -48,11 +48,11 @@ void adicionarFuncionario(Lista *pEmpresa)
         exit(EXIT_FAILURE);
 
     // coletando os dados do funcionário
-    printf("Nome do funcinário: ");
+    printf(" Nome do funcinário: ");
     fgets(pFuncionario->nome, 50, stdin);
     pFuncionario->nome[strlen(pFuncionario->nome) - 1] = '\0';
 
-    printf("Matrícula do funcionario: ");
+    printf(" Matrícula do funcionario: ");
     scanf("%u", &pFuncionario->matricula);
     getchar();
 
@@ -60,13 +60,15 @@ void adicionarFuncionario(Lista *pEmpresa)
     Nodo *pNodo = criarNodo((void *)pFuncionario);
 
     adicionar(pEmpresa, pNodo);
+
+    printf("\n >> Funcionário %s de matrícula %u inserido com sucesso!\n", pFuncionario->nome, pFuncionario->matricula);
 }
 
 void mostrarFuncionario(void *pNodo)
 {
     Funcionario *pFuncionario = (Funcionario *)pNodo;
-    printf("Nome: %s\n", pFuncionario->nome);
-    printf("Matrícula: %u\n\n", pFuncionario->matricula);
+    printf(" Nome: %s\n", pFuncionario->nome);
+    printf(" Matrícula: %u\n\n", pFuncionario->matricula);
 }
 
 void mostrarEmpresa(Lista *pEmpresa)
@@ -89,7 +91,7 @@ int compararFuncionario(void *pElemento, char *nome)
 void buscarFuncionario(Lista *pEmpresa)
 {
     char nome[50];
-    printf("Insira o nome do funcionário: ");
+    printf(" Insira o nome do funcionário: ");
     fgets(nome, 50, stdin);
     nome[strlen(nome) - 1] = '\0';
 
@@ -103,6 +105,6 @@ void buscarFuncionario(Lista *pEmpresa)
     }
     else
     {
-        printf("Funcionário Inexistente!\n");
+        printf(" >>Funcionário Inexistente!\n");
     }
 }
