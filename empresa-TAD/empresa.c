@@ -12,8 +12,16 @@ Lista *criarEmpresa()
 }
 
 // remove o funcionário da empresa
-void removerFuncionario(unsigned int matricula, Lista *pEmpresa)
+void removerFuncionario(Lista *pEmpresa)
 {
+    // colentando a matrícula do funcionário
+    unsigned int matricula;
+    printf("Informe a matricula do funcionario: ");
+    scanf("%u", &matricula);
+    getchar(); // coletando caractere de nova linha
+    printf("\n");
+
+
     Nodo *pNodo = pegarHead(pEmpresa);
 
     while (pNodo)
@@ -78,8 +86,14 @@ int compararFuncionario(void *pElemento, char *nome)
     return 0;
 }
 
-void buscarFuncionario(char *nome, Lista *pEmpresa)
+void buscarFuncionario(Lista *pEmpresa)
 {
+    char nome[50];
+    printf("Insira o nome do funcionário: ");
+    fgets(nome, 50, stdin);
+    nome[strlen(nome) - 1] = '\0';
+
+    printf("\n");
 
     Funcionario *pFuncionario = (Funcionario *)buscar(pEmpresa, nome, compararFuncionario);
 

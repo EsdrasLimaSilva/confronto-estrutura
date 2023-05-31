@@ -16,13 +16,13 @@ int main()
 
 	do
 	{
-		printf("\033[2J\033[H"); // limpando a tela
+		limparTela();
 		mostrarMenu();
 		printf("Operacação: ");
 		scanf("%d", &operacao);
 		getchar(); // coletando caractere de nova linha
 
-		printf("\033[2J\033[H"); // limpando a tela
+		limparTela();
 		printf("\n");
 
 		switch (operacao)
@@ -33,33 +33,12 @@ int main()
 		case ADICIONAR:
 			adicionarFuncionario(pEmpresa);
 			break;
-		case REMOVER:
-		{
-			// colentando a matrícula do funcionário
-			unsigned int matricula;
-			printf("Informe a matricula do funcionario: ");
-			scanf("%u", &matricula);
-			getchar(); // coletando caractere de nova linha
-
-			printf("\n");
-
-			// removendo o funcionário
-			removerFuncionario(matricula, pEmpresa);
+		case REMOVER:			
+			removerFuncionario(pEmpresa);
 			break;
-		}
 		case BUSCAR:
-		{
-			char nome[50];
-			printf("Insira o nome do funcionário: ");
-			fgets(nome, 50, stdin);
-			nome[strlen(nome) - 1] = '\0';
-
-			printf("\n");
-
-			buscarFuncionario(nome, pEmpresa);
-
+			buscarFuncionario(pEmpresa);
 			break;
-		}
 		case MOSTRAR:
 			mostrarEmpresa(pEmpresa);
 			break;
@@ -68,7 +47,7 @@ int main()
 		printf("\n\tPressione ENTER para continuar\n");
 		getchar();
 
-	} while (operacao != 0);
+	} while (operacao);
 
 	return EXIT_SUCCESS;
 }
