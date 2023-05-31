@@ -30,6 +30,6 @@ int checarIdentidade(int *pMatriz, int linhas, int colunas);
 int checarInversa(int *pMatA, int linhasA, int colunasA, int *pMatB, int linhasB, int colunasB);
 
 // multiplica matriz A * matriz B e coloca o resultado na matriz C
-void multiplicarMatrizes(int *pMatC, int *pMatA, int linhasA, int colunasA, int *pMatB, int linhasB, int colunasB);
+int multiplicarMatrizes(int *pMatC, int *pMatA, int linhasA, int colunasA, int *pMatB, int linhasB, int colunasB);
 
 #endif

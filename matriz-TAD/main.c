@@ -32,7 +32,8 @@ int main()
         {
         // opções (SAIR, ADICIONAR e etc) estão no enum opções no arquivo menu.h
         case SAIR:
-            break;
+            puts("Até logo");
+            exit(EXIT_SUCCESS);
         case ADICIONAR:
             puts("=========== Adicionar Elemento ============");
 
@@ -66,24 +67,15 @@ int main()
         {
             // pega dois exemplos de matrizes e multiplica eles
             puts("============== Multiplicar =================");
-            int matA[6] = {1, 2, 3, 4, 5, 6};
-            int matB[6] = {7,
-                           8,
-                           9,
-                           10,
-                           11,
-                           12};
+            int matA[2 * 3] = {1, 2, 3, 4, 5, 6};
+            int matB[3 * 2] = {7, 8, 9, 10, 11, 12};
             int matC[4];
 
             // mulciplicando as matrizes
-            multiplicarMatrizes(matC, matA, 2, 3, matB, 3, 2);
-
-            // mostrando as matrizes A e B e o produto delas
-            printf("Matriz A: \n");
-            mostrarMatriz(matA, 2, 3);
-
-            printf("\n\nMatriz B: \n");
-            mostrarMatriz(matB, 3, 2);
+            if(!multiplicarMatrizes(matC, matA, 2, 3, matB, 3, 2)){
+                getchar();
+                continue;
+            }
 
             printf("\n\nMatriz produto: \n");
             mostrarMatriz(matC, 2, 2);
