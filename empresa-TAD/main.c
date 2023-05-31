@@ -29,17 +29,21 @@ int main()
 		{
 		case SAIR:
 			printf("Até mais\n");
+			exit(EXIT_SUCCESS);
 			break;
 		case ADICIONAR:
+			printf(" ---------- Adicionar Funcionário ---------\n\n");
 			adicionarFuncionario(pEmpresa);
 			break;
 		case REMOVER:			
 			removerFuncionario(pEmpresa);
 			break;
 		case BUSCAR:
+			printf(" --------- Buscar Funcionário -------------\n\n");
 			buscarFuncionario(pEmpresa);
 			break;
 		case MOSTRAR:
+			printf(" --------- Funcioários -------------\n\n");
 			mostrarEmpresa(pEmpresa);
 			break;
 		}
