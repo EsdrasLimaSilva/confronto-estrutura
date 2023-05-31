@@ -10,3 +10,11 @@ void mostrarMenu()
 	printf("[%d] Buscar funcionário: \n", BUSCAR);
 	printf("[%d] Mostrar funcionarios\n\n", MOSTRAR);
 }
+
+void limparTela(){
+#ifdef _WIN_32
+	system("cls");
+#else
+	system("clear");
+#endif
+}

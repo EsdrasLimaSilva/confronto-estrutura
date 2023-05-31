@@ -20,7 +20,7 @@ Lista *criarEmpresa();
 void adicionarFuncionario(Lista *pEmpresa);
 
 // remove funcionario da empresa
-void removerFuncionario(unsigned int matricula, Lista *pEmpresa);
+void removerFuncionario(Lista *pEmpresa);
 
 // mostra um único funcionario
 void mostrarFuncionario(void *pNodo);
@@ -32,6 +32,6 @@ void mostrarEmpresa(Lista *pEmpresa);
 int compararFuncionario(void *pElemento, char *nome);
 
 // busca um funcionário e mostra ele
-void buscarFuncionario(char *nome, Lista *pEmpresa);
+void buscarFuncionario(Lista *pEmpresa);
 
 #endif

@@ -15,4 +15,7 @@ enum OPCOES
 // mostra o menu para o usuario
 void mostrarMenu();
 
+//limpa a tela
+void limparTela();
+
 #endif
