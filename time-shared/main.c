@@ -2,16 +2,46 @@
 #include <locale.h>
 
 #include "sistema-dinamico.h"
+#include "menu.h"
 
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    Sistema *pSistema = inidicarSistema();
+    Sistema *pSistema = iniciarSistema();
 
-    adicionarProcesso(pSistema, "Processo 1");
-    adicionarProcesso(pSistema, "Processo 2");
-    adicionarProcesso(pSistema, "Processo 3");
-    adicionarProcesso(pSistema, "Processo 4");
+    int operacao;
 
-    mostrarProcessos(pSistema);
+    while(
+        limparTela(),
+        mostraMenu(),
+        lerOperacao(&operacao, "Operação: "),
+        operacao
+        ){
+
+            switch(operacao){
+                case SAIR:
+                    printf("Sair\n");
+                    break;
+                case ADICIONAR:
+                    limparTela();
+                    printf("---------- Adicionar Processo ------------\n\n");
+                    adicionarProcesso(pSistema);
+                    break;
+                case REMOVER:
+                    printf("Remover\n");
+                    break;
+                case MOSTRAR:
+                    limparTela();
+                    printf("---------- Todos os Processos ------------\n\n");
+                    mostrarSistema(pSistema);
+                    break;
+                default:
+                    printf("Operação inválida! pressione ENTER para continuar");
+                    getchar();
+                    continue;
+            }
+
+        printf("\n\tPressione ENTER para continuar");
+        getchar();
+    }
 }
