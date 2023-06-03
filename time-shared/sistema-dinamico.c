@@ -49,7 +49,7 @@ void mostrarProcessos(Sistema *pSistema)
 {
     Nodo *pHead = pegarHead(pSistema->pFilaProcessos);
 
-    printf(" ========== Sistema time-shared dinâmico ============\n\n");
+    printf("---------------- Sistema time-shared dinâmico ----------------------\n\n");
     printf(" Número de processos: %d\n\n processos presentes: \n\n", pSistema->numeroDeProcessos);
 
     mostrarFila(pHead);
@@ -60,7 +60,7 @@ void mostrarSistema(Sistema *pSistema){
     Nodo *pHead = pegarHead(pSistema->pFilaProcessos);
 
     if(pHead)
-        mostrarFila(pHead);
+        mostrarProcessos(pSistema);
     else
         printf(" Vazio!\n\n");
     
