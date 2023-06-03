@@ -10,4 +10,7 @@ Processo * criarProcesso(char descricao[]);
 /*Mostra os detalhes do processo*/
 void mostrarProcesso(Processo *pProcesso);
 
+/* transforma os segundos em horas e mostra ela para o usuário */
+void mostrarHora(time_t tempoCriacao);
+
 #endif
