@@ -10,6 +10,8 @@ Sistema *iniciarSistema();
 /* Adiciona um processo na fila de processos */
 void adicionarProcesso(Sistema*pSistema);
 
+void removerProcesso(Sistema*pSistema);
+
 /* Mostra todos os processos, e o número de processos presentes na fila de processos */
 void mostrarProcessos(Sistema *pSistema);
 

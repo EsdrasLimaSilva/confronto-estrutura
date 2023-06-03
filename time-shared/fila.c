@@ -54,6 +54,15 @@ int inserir(Processo *pProcesso, Fila *pFila)
     return 1;
 }
 
+void remover(Fila *pFila){
+
+    Nodo *aux = pFila->pHead;
+    pFila -> pHead  = pFila -> pHead -> pProximo;
+
+    free(aux);
+    
+}
+
 void mostrarFila(Nodo *pNodo)
 {
     if (pNodo)

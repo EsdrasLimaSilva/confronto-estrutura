@@ -15,6 +15,8 @@ Fila *criarFila();
 /* Insere um elemento no fim da fila. retorna um se foi bem sucedido */
 int inserir(Processo *pProcesso, Fila *pFila);
 
+void remover(Fila *pFila);
+
 /* Mostra todos os elementos da fila */
 void mostrarFila(Nodo *pNodo);
 
