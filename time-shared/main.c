@@ -28,7 +28,8 @@ int main()
                     adicionarProcesso(pSistema);
                     break;
                 case REMOVER:
-                    printf("Remover\n");
+                    limparTela();
+                    removerProcesso(pSistema);
                     break;
                 case MOSTRAR:
                     limparTela();

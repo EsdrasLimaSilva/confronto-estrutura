@@ -64,4 +64,18 @@ void mostrarSistema(Sistema *pSistema){
     else
         printf(" Vazio!\n\n");
     
+} 
+
+void removerProcesso(Sistema *pSistema){
+
+    Nodo *pHead = pegarHead(pSistema -> pFilaProcessos);
+
+    if(pHead){
+        remover(pSistema -> pFilaProcessos);
+        printf("Processo removido com sucesso!");
+    } else {
+        printf("Não foi possivel remover, a está lista vazia");
+    }
+    
+    
 }

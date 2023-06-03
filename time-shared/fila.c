@@ -54,6 +54,25 @@ int inserir(Processo *pProcesso, Fila *pFila)
     return 1;
 }
 
+void remover(Fila *pFila){
+
+    // esse aux eu coloquei para não perder a referencia do objeto removido
+    // caso a gente precise pegar os dados dele e mostrar pro usuario antes de dar um free
+    Nodo *aux = (Nodo *)malloc(sizeof(Nodo));
+
+    if (!aux){
+        exit(EXIT_FAILURE);
+    }
+        
+    aux -> pProximo = pFila -> pHead;
+    aux -> pProcesso = pFila -> pHead -> pProcesso;
+
+    pFila -> pHead  = pFila -> pHead -> pProximo;
+
+    free(aux);
+    
+}
+
 void mostrarFila(Nodo *pNodo)
 {
     if (pNodo)
