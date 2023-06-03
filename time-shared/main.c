@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
 
-#include "sistema-dinamico.h"
+#include "sistema-estatico.h"
 #include "menu.h"
 
 int main()
@@ -33,7 +33,6 @@ int main()
                     break;
                 case MOSTRAR:
                     limparTela();
-                    printf("---------- Todos os Processos ------------\n\n");
                     mostrarSistema(pSistema);
                     break;
                 default:
