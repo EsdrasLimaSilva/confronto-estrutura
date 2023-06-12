@@ -1,7 +1,7 @@
 #ifndef HANOI_C
 #define HANOI_C
 
-#include "torre-estatica.h"
+#include "torre.h"
 
 /* estrutura do jogo */
 typedef struct hanoi Hanoi;

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "hanoi.h"
-#include "torre-dinamica.h"
+#include "torre.h"
 
 struct hanoi
 {

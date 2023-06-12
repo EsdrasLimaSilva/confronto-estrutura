@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "torre-dinamica.h"
+#include "torre.h"
 #include "pilha.h"
 
 #define PECAS_POR_TORRE 6
