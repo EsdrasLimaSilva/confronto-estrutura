@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
 
-#include "sistema-dinamico.h"
+#include "sistema.h"
 #include "menu.h"
 
 int main()
