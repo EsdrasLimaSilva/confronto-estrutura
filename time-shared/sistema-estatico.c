@@ -68,5 +68,20 @@ void mostrarSistema(Sistema *pSistema){
 }
 
 void removerProcesso(Sistema *pSistema){
+    if(pSistema->numeroProcessos > 0){
 
+        if(pSistema->numeroProcessos == 1){
+            pSistema->pfilaProcessos[0] = NULL;
+        } else {
+            for(int i = 0; i < pSistema->numeroProcessos - 1; i++){
+            pSistema->pfilaProcessos[i] = pSistema->pfilaProcessos[i+1];
+        }
+        }
+
+        pSistema->numeroProcessos--;
+        printf("Processo removido");
+
+    } else {
+        printf("Vazio!\n");
+    }
 }
