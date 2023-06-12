@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "sistema-dinamico.h"
+#include "sistema.h"
 #include "fila.h"
 
 struct sistema

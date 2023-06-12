@@ -4,7 +4,7 @@
 #include <time.h>
 
 
-#include"sistema-estatico.h"
+#include"sistema.h"
 #include"processo.h"
 
 #define MAX_PROCESSOS 200
