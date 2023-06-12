@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "torre-estatica.h"
+#include "torre.h"
 #include "pilha.h"
 
 #define PECAS_POR_TORRE 6
