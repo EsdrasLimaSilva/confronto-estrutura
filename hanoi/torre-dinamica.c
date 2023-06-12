@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "torre.h"
 #include "pilha.h"
 
@@ -12,9 +13,19 @@ struct torre
 };
 
 Torre *criarTorre(int inicial)
-{
+{   
+    printf(" Criando torre DINÂMICA\n");
+    getchar();
+
     Torre *pTorre = (Torre *)malloc(sizeof(Torre));
+    if(!pTorre)
+        exit(EXIT_FAILURE);
+
     Pilha *pPilha = criarPilha();
+    if(!pPilha)
+        exit(EXIT_FAILURE);
+
+
     pTorre->pPilha = pPilha;
 
     pTorre->pecasPresentes = 0;

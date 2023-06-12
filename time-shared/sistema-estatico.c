@@ -15,6 +15,8 @@ struct sistema {
 };
 
 Sistema *iniciarSistema(){
+    printf(">> Iniciando sistema ESTÁTICO");
+    getchar();
     // aidionando seed nula para gerador de número de processos
     srand(time(NULL));
 

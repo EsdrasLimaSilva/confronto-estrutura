@@ -13,6 +13,8 @@ struct torre
 };
 
 Torre *criarTorre(int inicial){
+    printf(" Criando torre ESTÁTICA\n");
+    getchar();
 
     Torre *pTorre = malloc(sizeof(Torre));
 
